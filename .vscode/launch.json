@@ -2,18 +2,19 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Launch Django Backend",
-      "type": "python",
+      "name": "Launch Express Backend",
+      "type": "node",
       "request": "launch",
-      "program": "${workspaceFolder}/octofit-tracker/backend/manage.py",
-      "args": ["runserver", "0.0.0.0:8000"],
-      "django": true,
-      "justMyCode": true,
-      "python": "${workspaceFolder}/octofit-tracker/backend/venv/bin/python",
+      "cwd": "${workspaceFolder}/octofit-tracker/backend",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "dev"
+      ],
+      "port": 8000,
       "env": {
-        "PYTHONPATH": "${workspaceFolder}/octofit-tracker/backend/venv/bin/python",
-        "VIRTUAL_ENV": "${workspaceFolder}/octofit-tracker/backend/venv",
-        "PATH": "${workspaceFolder}/octofit-tracker/backend/venv/bin:${env:PATH}"
+        "NODE_ENV": "development",
+        "CODESPACE_NAME": "${env:CODESPACE_NAME}"
       }
     },
     {
@@ -24,10 +25,7 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": [
         "run",
-        "dev",
-        "--",
-        "--host",
-        "0.0.0.0"
+        "dev"
       ],
       "port": 5173,
       "env": {
